@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/QCatGrayWidgets/QCatGrayWidgetControls">
+        <file>style/PagingNavigation.css</file>
+    </qresource>
+</RCC>
