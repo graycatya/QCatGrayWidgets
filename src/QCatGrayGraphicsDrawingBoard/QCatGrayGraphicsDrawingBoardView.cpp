@@ -36,9 +36,12 @@ void QCatGrayGraphicsDrawingBoardView::Reset()
 {
     //this->setTransformationAnchor(QGraphicsView::AnchorViewCenter);
 #if (QT_VERSION < QT_VERSION_CHECK(6,0,0))
-    QMatrix q;
-    q.setMatrix(1, matrix().m12(), matrix().m21(),1, matrix().dx(), matrix().dy());
-    setMatrix(q,false);
+//    QMatrix q;
+//    q.setMatrix(1, matrix().m12(), matrix().m21(),1, matrix().dx(), matrix().dy());
+//    setMatrix(q,false);
+    QTransform tf;
+    tf.setMatrix(1, transform().m12(), transform().m13(), transform().m21(), 1, transform().m23(), transform().dx(), transform().dy(), 1);
+    setTransform(tf, false);
 #else
     resetTransform();
 #endif

@@ -11,7 +11,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_compile_options(-Wall -fPIC)
+if (UNIX)
+add_compile_options(-Wall -fPIC -Wno-stringop-overflow)
+endif(UNIX)
 
 message(STATUS ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -22,8 +24,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets Gui Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets Gui Quick)
 
+if(TARGET qrencode)
+  message("libqrencode found")
+else()
+  message("libqrencode not found")
+  add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/libqrencode libqrencode.out)
+endif()
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/libqrencode libqrencode.out)
 
 
 file(GLOB SRC_LIST

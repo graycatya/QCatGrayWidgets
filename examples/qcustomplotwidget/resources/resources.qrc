@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/CatGray/PullDown.png</file>
+        <file>Images/CatGray/PullUp.png</file>
+        <file>qss/CatGray/CatQcustomplotTools.css</file>
+        <file>Images/CatGray/QcustomplotLineChart.png</file>
+        <file>qss/CatGray/CatLineChart.css</file>
+        <file>Images/CatGray/CheckOff_gray.png</file>
+        <file>Images/CatGray/CheckOff_orange.png</file>
+        <file>Images/CatGray/CheckOn_orange.png</file>
+        <file>Images/CatGray/QcustomplotBarGraph.png</file>
+        <file>qss/CatGray/CatBarChart.css</file>
+        <file>Images/CheckOff_Hover.png</file>
+        <file>Images/CheckOff_Normal.png</file>
+        <file>Images/CheckOn_All.png</file>
+        <file>Images/CheckOn_Partially.png</file>
+        <file>Images/BelowHover.png</file>
+        <file>Images/BelowNormal.png</file>
+        <file>Images/UpHover.png</file>
+        <file>Images/UpNormal.png</file>
+        <file>qss/CatGray/ListingOptionQcustompCharts.css</file>
+    </qresource>
+</RCC>
