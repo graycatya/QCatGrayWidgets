@@ -9,7 +9,7 @@ Window {
     width: 640
     height: 480
     visible: true
-    title: qsTr("example")
+    title: qsTr("qrencodeqml")
 
     property string textcode: textinput.text
     signal setTextCode(string str)
