@@ -59,8 +59,8 @@ endif()
 
 target_link_libraries(qcustomplotwidget PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    QCatGrayQcustomplot
-    QCatGrayWidgetControls
+    QCatGrayQcustomplot_a
+    QCatGrayWidgetControls_a
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

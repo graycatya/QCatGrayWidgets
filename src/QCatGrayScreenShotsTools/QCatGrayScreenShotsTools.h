@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QWidget>
-#include <QtUiPlugin/QDesignerExportWidget>
 
 class QCatGrayScreenShotBase;
 class QCatGrayScreenShotsToolScene;
@@ -11,7 +10,7 @@ class QCatGrayScreenShotsToolMasklayer;
 class QCatGrayScreenShotsToolFilterbox;
 class QVBoxLayout;
 
-class QDESIGNER_WIDGET_EXPORT QCatGrayScreenShotsTools : public QWidget
+class QCatGrayScreenShotsTools : public QWidget
 {
     Q_OBJECT
 public:

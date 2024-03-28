@@ -50,7 +50,7 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    QCatGrayScreenShotsTools
+    QCatGrayScreenShotsTools_a
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
