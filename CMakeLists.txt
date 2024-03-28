@@ -34,6 +34,7 @@ set(MODULES
     QCatGrayGraphicsDrawingBoard
     QCatGrayQcustomplot
     QCatGrayQrenCode
+    QCatGrayScreenShotsTools
 )
 
 set(QCatGrayGraphicsDrawingBoard
@@ -41,10 +42,15 @@ set(QCatGrayGraphicsDrawingBoard
     QCatGrayTeachingTools
 )
 
+set(QCatGrayScreenShotsTools
+    QCatGrayScreenShots
+)
+
 set(EXAMPLES
     qrencodewidget
     qrencodeqml
     qcustomplotwidget
+    screenshotstools
 )
 
 foreach(3rdparty_module ${3RDPARTY})
