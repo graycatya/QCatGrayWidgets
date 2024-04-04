@@ -1,5 +1,6 @@
 #include "QCatGrayScreenShotsToolScene.h"
 
+#include <QDebug>
 
 QCatGrayScreenShotsToolScene::QCatGrayScreenShotsToolScene(QObject *parent)
     : QGraphicsScene(parent)
@@ -22,4 +23,25 @@ QCatGrayScreenShotsToolScene::QCatGrayScreenShotsToolScene(qreal x, qreal y, qre
 QCatGrayScreenShotsToolScene::~QCatGrayScreenShotsToolScene()
 {
 
+}
+
+
+bool QCatGrayScreenShotsToolScene::event(QEvent *event)
+{
+    return QGraphicsScene::event(event);
+}
+
+void QCatGrayScreenShotsToolScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    QGraphicsScene::mousePressEvent(event);
+}
+
+void QCatGrayScreenShotsToolScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    QGraphicsScene::mouseMoveEvent(event);
+}
+
+void QCatGrayScreenShotsToolScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    QGraphicsScene::mouseReleaseEvent(event);
 }

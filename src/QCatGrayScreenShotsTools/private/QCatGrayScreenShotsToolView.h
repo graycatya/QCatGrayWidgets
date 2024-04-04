@@ -11,4 +11,10 @@ public:
     QCatGrayScreenShotsToolView(QGraphicsScene *scene, QWidget *parent = nullptr);
     ~QCatGrayScreenShotsToolView();
 
+protected:
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+
+
 };
