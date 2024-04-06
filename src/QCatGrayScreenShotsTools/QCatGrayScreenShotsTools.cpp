@@ -76,8 +76,8 @@ void QCatGrayScreenShotsTools::InitProperty()
     m_CatGrayScreenShotsToolFilterbox = new QCatGrayScreenShotsToolFilterbox();
     m_CatGrayScreenShotsToolFilterbox->setBackdropWidget(m_CatGrayScreenShotsToolBackdrop);
     m_CatGrayScreenShotsToolFilterbox->setBoundingRect(QRectF(100,100,
-                                                              100,
-                                                              100));
+                                                              500,
+                                                              500));
     m_CatGrayScreenShotsToolScene->addItem(m_CatGrayScreenShotsToolFilterbox);
     m_CatGrayScreenShotsToolBackdrop->setBackdrop(m_Backdrop);
 

@@ -91,9 +91,9 @@ void QCatGrayScreenShotsToolFilterbox::paint(QPainter *painter, const QStyleOpti
     if(m_BackdropWidget)
     {
         QTransform transform = m_BackdropWidget->getTransform();
-        qreal zWidth = m_BoundingRect.width() / (1.5 * transform.m11());
+        qreal zWidth = m_BoundingRect.width() / (2 * transform.m11());
         qreal zWidthHalf = zWidth / 2;
-        qreal zHeight = m_BoundingRect.height() / (1.5 * transform.m22());
+        qreal zHeight = m_BoundingRect.height() / (2 * transform.m22());
         qreal zHeightHalf = zHeight / 2;
 
         float zX = m_BoundingRect.x() + zWidthHalf;
