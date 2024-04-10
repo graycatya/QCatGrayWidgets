@@ -14,8 +14,21 @@ class QCatGrayScreenShotsTools : public QWidget
 {
     Q_OBJECT
 public:
+    enum SCREENINGMODE {
+        FOCUSINGLIGHT_MODE,
+        MAGNIFYINGGLASS_MODE,
+    };
+    Q_ENUM(SCREENINGMODE)
     explicit QCatGrayScreenShotsTools(QWidget* parent = nullptr);
     ~QCatGrayScreenShotsTools();
+
+    void setMasklayerColor(QColor color);
+    void setBorderColor(QColor color);
+    void setBorderWidth(qreal width);
+    void setRectRadius(int radius);
+    void setBoundingRect(QRectF rect);
+    void setScreeningMode(SCREENINGMODE mode);
+    void setFilterBoxMovable(bool flag);
 
 protected:
     void resizeEvent(QResizeEvent *event);

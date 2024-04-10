@@ -35,6 +35,62 @@ QCatGrayScreenShotsTools::~QCatGrayScreenShotsTools()
     }
 }
 
+void QCatGrayScreenShotsTools::setMasklayerColor(QColor color)
+{
+    if(m_CatGrayScreenShotsToolMasklayer)
+    {
+        m_CatGrayScreenShotsToolMasklayer->setMasklayerColor(color);
+    }
+}
+
+void QCatGrayScreenShotsTools::setBorderColor(QColor color)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setBorderColor(color);
+    }
+}
+
+void QCatGrayScreenShotsTools::setBorderWidth(qreal width)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setBorderWidth(width);
+    }
+}
+
+void QCatGrayScreenShotsTools::setRectRadius(int radius)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setRectRadius(radius);
+    }
+}
+
+void QCatGrayScreenShotsTools::setBoundingRect(QRectF rect)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setBoundingRect(rect);
+    }
+}
+
+void QCatGrayScreenShotsTools::setScreeningMode(SCREENINGMODE mode)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setScreeningMode((QCatGrayScreenShotsToolFilterbox::SCREENINGMODE)mode);
+    }
+}
+
+void QCatGrayScreenShotsTools::setFilterBoxMovable(bool flag)
+{
+    if(m_CatGrayScreenShotsToolFilterbox)
+    {
+        m_CatGrayScreenShotsToolFilterbox->setMovable(flag);
+    }
+}
+
 void QCatGrayScreenShotsTools::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
@@ -71,13 +127,16 @@ void QCatGrayScreenShotsTools::InitProperty()
     m_CatGrayScreenShotsToolMasklayer->setBoundingRect(QRectF(0,0,
                                                             QApplication::primaryScreen()->size().width(),
                                                             QApplication::primaryScreen()->size().height()));
-    m_CatGrayScreenShotsToolMasklayer->setMasklayerColor(QColor(0, 0, 0, 199));
+    // m_CatGrayScreenShotsToolMasklayer->setMasklayerColor(QColor(0, 0, 0, 199));
 
     m_CatGrayScreenShotsToolFilterbox = new QCatGrayScreenShotsToolFilterbox();
     m_CatGrayScreenShotsToolFilterbox->setBackdropWidget(m_CatGrayScreenShotsToolBackdrop);
-    m_CatGrayScreenShotsToolFilterbox->setBoundingRect(QRectF(100,100,
-                                                              500,
-                                                              500));
+    // m_CatGrayScreenShotsToolFilterbox->setBorderColor(Qt::red);
+    // m_CatGrayScreenShotsToolFilterbox->setBorderWidth(5);
+    // m_CatGrayScreenShotsToolFilterbox->setRectRadius(250);
+    // m_CatGrayScreenShotsToolFilterbox->setBoundingRect(QRectF(100,100,
+    //                                                           500,
+    //                                                           500));
     m_CatGrayScreenShotsToolScene->addItem(m_CatGrayScreenShotsToolFilterbox);
     m_CatGrayScreenShotsToolBackdrop->setBackdrop(m_Backdrop);
 
