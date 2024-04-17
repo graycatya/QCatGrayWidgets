@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     w.setMasklayerColor(QColor(0, 0, 0, 199));
 
     w.setBorderColor(Qt::red);
-    w.setBorderWidth(20);
+    w.setBorderWidth(5);
     w.setRectRadius(250);
     w.setScreeningMode(QCatGrayScreenShotsTools::MAGNIFYINGGLASS_MODE);
     w.setFilterBoxMovable(true);
