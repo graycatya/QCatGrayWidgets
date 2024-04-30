@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 #include <QGraphicsProxyWidget>
 #include <QDesktopWidget>
+#include <QDebug>
 
 QPixmap *m_Backdrop = nullptr;
 
@@ -131,6 +132,12 @@ void QCatGrayScreenShotsTools::InitProperty()
 
     m_CatGrayScreenShotsToolFilterbox = new QCatGrayScreenShotsToolFilterbox();
     m_CatGrayScreenShotsToolFilterbox->setBackdropWidget(m_CatGrayScreenShotsToolBackdrop);
+    connect(m_CatGrayScreenShotsToolFilterbox, &QCatGrayScreenShotsToolFilterbox::boundingRectChanged, this, [=](){
+        m_CatGrayScreenShotsToolView->update(m_CatGrayScreenShotsToolFilterbox->x() - 100,
+                                             m_CatGrayScreenShotsToolFilterbox->y() - 100,
+                                             m_CatGrayScreenShotsToolFilterbox->boundingRect().width() + 100,
+                                             m_CatGrayScreenShotsToolFilterbox->boundingRect().height() + 100);
+    });
     // m_CatGrayScreenShotsToolFilterbox->setBorderColor(Qt::red);
     // m_CatGrayScreenShotsToolFilterbox->setBorderWidth(5);
     // m_CatGrayScreenShotsToolFilterbox->setRectRadius(250);

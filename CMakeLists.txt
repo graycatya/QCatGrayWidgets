@@ -55,7 +55,7 @@ set(EXAMPLES
 
 foreach(3rdparty_module ${3RDPARTY})
     if(${3rdparty_module} STREQUAL "libqrencode")
-        set(WITH_TOOLS OFF)
+        option(WITH_TOOLS "Build utility tools"  OFF)
     endif()
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/${3rdparty_module})
 endforeach(3rdparty_module ${3RDPARTY})

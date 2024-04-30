@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QGraphicsSceneHoverEvent>
 #include <QKeyEvent>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 bool isupdate = false;
 
@@ -32,9 +34,10 @@ void QCatGrayScreenShotsToolFilterbox::setBoundingRect(QRectF rect)
         // m_BoundingRect.setSize(rect.size());
     this->setPos(QPointF(rect.topLeft()));
     m_BoundingRect = rect;
-
     emit boundingRectChanged();
     PainterMode();
+
+
     // }
 }
 
@@ -256,6 +259,7 @@ void QCatGrayScreenShotsToolFilterbox::mouseMoveEvent(QGraphicsSceneMouseEvent *
     setBoundingRect({pos.x() - event->pos().x(),
                      pos.y() - event->pos().y(),
                      this->m_BoundingRect.width(), this->m_BoundingRect.height()});
+
     QGraphicsItem::mouseMoveEvent(event);
 }
 
