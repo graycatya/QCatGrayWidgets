@@ -48,16 +48,19 @@ set(QCatGrayScreenShotsTools
 
 set(EXAMPLES
     qrencodewidget
-    qrencodeqml
     qcustomplotwidget
     screenshotstools
 )
 
 foreach(3rdparty_module ${3RDPARTY})
     if(${3rdparty_module} STREQUAL "libqrencode")
-        option(WITH_TOOLS "Build utility tools"  OFF)
+        if(NOT TARGET qrencode)
+            set(WITH_TOOLS OFF)
+            add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/${3rdparty_module})
+        endif()
+    else()
+        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/${3rdparty_module})
     endif()
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/${3rdparty_module})
 endforeach(3rdparty_module ${3RDPARTY})
 
 foreach(module ${MODULES})
@@ -67,4 +70,3 @@ endforeach(module ${MODULES})
 foreach(example ${EXAMPLES})
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples/${example})
 endforeach(example ${EXAMPLES})
-
