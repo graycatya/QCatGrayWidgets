@@ -11,7 +11,7 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGraphicsProxyWidget>
-#include <QDesktopWidget>
+//#include <QDesktopWidget>
 #include <QDebug>
 
 QPixmap *m_Backdrop = nullptr;
@@ -105,13 +105,13 @@ void QCatGrayScreenShotsTools::resizeEvent(QResizeEvent *event)
 void QCatGrayScreenShotsTools::InitProperty()
 {
     mLayout = new QVBoxLayout;
-    mLayout->setMargin(0);
+    mLayout->setContentsMargins(0,0,0,0);
     m_CatGrayScreenShotBase = new QCatGrayScreenShot(this);
     int screenid = QApplication::screens().indexOf(QApplication::primaryScreen());
     m_Backdrop = static_cast<QPixmap *>(m_CatGrayScreenShotBase->getScreenShot(screenid, 0, 0,
                                         QApplication::primaryScreen()->size().width(),
                                         QApplication::primaryScreen()->size().height(),
-                                        QApplication::desktop()->winId()));
+                                        this->winId()));
     m_CatGrayScreenShotsToolMasklayer = new QCatGrayScreenShotsToolMasklayer();
     m_CatGrayScreenShotsToolScene = new QCatGrayScreenShotsToolScene(this);
     m_CatGrayScreenShotsToolView = new QCatGrayScreenShotsToolView(m_CatGrayScreenShotsToolScene, this);
