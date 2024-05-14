@@ -14,6 +14,7 @@ QCatGrayPagingNavigation::QCatGrayPagingNavigation(QWidget *parent)
       m_nTotalPages(0) ,
       m_nCurrentPage(1)
 {
+    Q_INIT_RESOURCE(QCatGrayWidgetControls);
     InitUi();
     InitProperty();
     InitConnect();
@@ -174,7 +175,7 @@ void QCatGrayPagingNavigation::InitConnect()
 
 void QCatGrayPagingNavigation::UpdateStyle()
 {
-    QFile file_1(":/CatWidgetControls/QCatGrayWidgetControls/style/PagingNavigation.css");
+    QFile file_1(":/QCatGrayWidgets/QCatGrayWidgetControls/style/PagingNavigation.css");
     file_1.open(QIODevice::ReadOnly);
     QString stylehoot_1 = QLatin1String(file_1.readAll());
     this->setStyleSheet(stylehoot_1);

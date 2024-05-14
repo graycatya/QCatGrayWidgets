@@ -309,7 +309,7 @@ void QCatGrayListingOptions::InitProperty()
     m_pScrollArea->setMouseTracking(true);
     m_pButtonLists->installEventFilter(this);
     m_pButtonLists->setMouseTracking(true);
-    /*QFile resourceqss(":/qss/CatGray/ListingOptions.css");
+    /*QFile resourceqss(":/qss/CatGray/QCatGrayListingOptions.css");
     resourceqss.open(QFile::ReadOnly);
     this->setStyleSheet(resourceqss.readAll());
     resourceqss.close();*/

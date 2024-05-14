@@ -17,6 +17,7 @@
 
 QGraphicsView* GetView(QGraphicsScene* scene)
 {
+    Q_INIT_RESOURCE(QCatGrayTeachingTools);
     return dynamic_cast<QCatGrayGraphicsDrawingBoardScene*>(scene)->View();
 }
 
