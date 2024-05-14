@@ -3,7 +3,7 @@
 
 #include <QGraphicsItem>
 #include <QPainterPath>
-#include <QObject>
+//#include <QObject>
 
 #include <QDebug>
 

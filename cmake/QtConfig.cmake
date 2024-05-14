@@ -27,19 +27,23 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 #--
 function(build_linguisttools)
 if(ARGN)
-	find_package(Qt5LinguistTools REQUIRED)
+  if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+      
+  else(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    find_package(Qt5LinguistTools REQUIRED)
 
-	find_program(LUPDATE_EXECUTABLE lupdate)
-	find_program(LRELEASE_EXECUTABLE lrelease)
+    find_program(LUPDATE_EXECUTABLE lupdate)
+    find_program(LRELEASE_EXECUTABLE lrelease)
 
-	foreach(_ts_file IN LISTS ARGN)
+    foreach(_ts_file IN LISTS ARGN)
 
-		execute_process(
-			COMMAND ${LUPDATE_EXECUTABLE} -recursive ${CMAKE_SOURCE_DIR} -ts ${_ts_file})
-		execute_process(
-			COMMAND ${LRELEASE_EXECUTABLE} ${_ts_file})
+      execute_process(
+        COMMAND ${LUPDATE_EXECUTABLE} -recursive ${CMAKE_CURRENT_SOURCE_DIR} -ts ${_ts_file})
+      execute_process(
+        COMMAND ${LRELEASE_EXECUTABLE} ${_ts_file})
 
-	endforeach()
+    endforeach()
+  endif(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 endif(ARGN)
 endfunction(build_linguisttools)
 
