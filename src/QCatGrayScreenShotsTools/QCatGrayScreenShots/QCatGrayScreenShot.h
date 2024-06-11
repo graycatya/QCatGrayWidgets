@@ -13,7 +13,7 @@ public:
     void* getScreenShot(int screenid,
                         int x, int y,
                         int width, int height,
-                        int winid = 0) const;
+                        qint64 winid = 0) const;
 
     double logicalDotsPerInchX(int screenid) const;
     double logicalDotsPerInchY(int screenid) const;

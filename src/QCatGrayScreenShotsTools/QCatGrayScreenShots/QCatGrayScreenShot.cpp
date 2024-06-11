@@ -3,9 +3,10 @@
 #include <QGuiApplication>
 #include <QPixmap>
 #include <QScreen>
+#include <QApplication>
 
 QCatGrayScreenShot::QCatGrayScreenShot(QObject *parent)
-    : QObject{parent}
+    : QObject(parent)
 {
 
 }
@@ -18,9 +19,10 @@ QCatGrayScreenShot::~QCatGrayScreenShot()
 void *QCatGrayScreenShot::getScreenShot(int screenid,
                                         int x, int y,
                                         int width, int height,
-                                        int winid) const
+                                        qint64 winid) const
 {
     QPixmap *map = nullptr;
+
     if(QGuiApplication::screens().length() > screenid && screenid >= 0)
     {
         QScreen *screen = QGuiApplication::screens().at(screenid);
@@ -41,6 +43,7 @@ void *QCatGrayScreenShot::getScreenShot(int screenid,
             height
             ));
 #endif
+        qDebug() << "map.size: " << map->size();
     }
     return map;
 }

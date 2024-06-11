@@ -108,10 +108,17 @@ void QCatGrayScreenShotsTools::InitProperty()
     mLayout->setContentsMargins(0,0,0,0);
     m_CatGrayScreenShotBase = new QCatGrayScreenShot(this);
     int screenid = QApplication::screens().indexOf(QApplication::primaryScreen());
+    #if (QT_VERSION < QT_VERSION_CHECK(6,0,0))
     m_Backdrop = static_cast<QPixmap *>(m_CatGrayScreenShotBase->getScreenShot(screenid, 0, 0,
                                         QApplication::primaryScreen()->size().width(),
                                         QApplication::primaryScreen()->size().height(),
                                         this->winId()));
+    #else
+    m_Backdrop = static_cast<QPixmap *>(m_CatGrayScreenShotBase->getScreenShot(screenid, 0, 0,
+                                       QApplication::primaryScreen()->size().width(),
+                                       QApplication::primaryScreen()->size().height(),
+                                       0));
+    #endif
     m_CatGrayScreenShotsToolMasklayer = new QCatGrayScreenShotsToolMasklayer();
     m_CatGrayScreenShotsToolScene = new QCatGrayScreenShotsToolScene(this);
     m_CatGrayScreenShotsToolView = new QCatGrayScreenShotsToolView(m_CatGrayScreenShotsToolScene, this);

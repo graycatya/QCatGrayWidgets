@@ -1,5 +1,6 @@
 #include "QCatGrayScreenShotsToolBackdrop.h"
 #include <QPainter>
+#include <QDebug>
 
 
 QCatGrayScreenShotsToolBackdrop::QCatGrayScreenShotsToolBackdrop(QWidget *parent)
@@ -32,7 +33,7 @@ void QCatGrayScreenShotsToolBackdrop::paintEvent(QPaintEvent *event)
         {
             QPainter painter(this);
             QImage image(m_Backdrop->toImage());
-
+            qDebug() << "image: " << image.size();
             painter.drawImage(0, 0, image);
             m_Transform = painter.transform();
         }

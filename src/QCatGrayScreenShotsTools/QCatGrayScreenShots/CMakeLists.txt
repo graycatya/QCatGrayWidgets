@@ -14,8 +14,8 @@ message(STATUS ${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED Gui QUIET)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED Gui QUIET)
+find_package(QT NAMES Qt6 Qt5 REQUIRED Gui Widgets QUIET)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED Gui Widgets QUIET)
 
 
 file(GLOB SRC_LIST
@@ -40,12 +40,14 @@ add_library(${PROJECT_NAME}_a STATIC ${SRC_LIST})
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE 
-        Qt${QT_VERSION_MAJOR}::Gui)
+        Qt${QT_VERSION_MAJOR}::Gui
+        Qt${QT_VERSION_MAJOR}::Widgets)
 
 
 target_link_libraries(${PROJECT_NAME}_a 
     PRIVATE 
-        Qt${QT_VERSION_MAJOR}::Gui)
+        Qt${QT_VERSION_MAJOR}::Gui
+        Qt${QT_VERSION_MAJOR}::Widgets)
 
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

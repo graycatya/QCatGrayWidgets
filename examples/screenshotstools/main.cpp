@@ -1,5 +1,5 @@
 #include <QApplication>
-
+#include <QTimer>
 #include "QCatGrayScreenShotsTools.h"
 
 int main(int argc, char *argv[])
@@ -27,6 +27,9 @@ int main(int argc, char *argv[])
     w.setBoundingRect(QRectF(100,100,
                               500,
                               500));
-    w.showFullScreen();
+    QTimer::singleShot(1000, [&w](){
+        w.showFullScreen();
+    });
+
     return a.exec();
 }
