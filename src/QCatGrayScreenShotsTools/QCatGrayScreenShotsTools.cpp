@@ -11,7 +11,10 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGraphicsProxyWidget>
-//#include <QDesktopWidget>
+
+#if (QT_VERSION < QT_VERSION_CHECK(6,0,0))
+#include <QDesktopWidget>
+#endif
 #include <QDebug>
 
 QPixmap *m_Backdrop = nullptr;
@@ -112,7 +115,7 @@ void QCatGrayScreenShotsTools::InitProperty()
     m_Backdrop = static_cast<QPixmap *>(m_CatGrayScreenShotBase->getScreenShot(screenid, 0, 0,
                                         QApplication::primaryScreen()->size().width(),
                                         QApplication::primaryScreen()->size().height(),
-                                        this->winId()));
+                                        QApplication::desktop()->winId()));
     #else
     m_Backdrop = static_cast<QPixmap *>(m_CatGrayScreenShotBase->getScreenShot(screenid, 0, 0,
                                        QApplication::primaryScreen()->size().width(),
@@ -155,5 +158,5 @@ void QCatGrayScreenShotsTools::InitProperty()
     m_CatGrayScreenShotsToolBackdrop->setBackdrop(m_Backdrop);
 
     this->setLayout(mLayout);
-
+    m_CatGrayScreenShotsToolView->setStyleSheet("padding: 0px; border: 0px;");
 }
