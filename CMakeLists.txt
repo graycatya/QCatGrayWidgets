@@ -35,6 +35,7 @@ set(MODULES
     QCatGrayQcustomplot
     QCatGrayQrenCode
     QCatGrayScreenShotsTools
+    QCatGrayQuickWidget
 )
 
 set(QCatGrayGraphicsDrawingBoard
