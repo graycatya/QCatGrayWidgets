@@ -16,7 +16,6 @@ class QCatGrayQuickWidget : public QWidget
     Q_PROPERTY(QUrl source READ source WRITE setSource DESIGNABLE true)
 public:
     QCatGrayQuickWidget(const QUrl &source, QWidget *parent = nullptr);
-    QCatGrayQuickWidget(QQmlEngine *engine, QWidget *parent = nullptr);
     explicit QCatGrayQuickWidget(QWidget *parent = nullptr);
 
     virtual ~QCatGrayQuickWidget() override;
@@ -35,9 +34,17 @@ public:
         return m_pView;
     };
 
+    QUrl source() const;
+
+signals:
+    void statusChanged();
+
+public slots:
+    void setSource(const QUrl &url);
+
 private:
     QQuickView *m_pView = nullptr;
-
+    QUrl m_qSource;
 };
 
 #endif
