@@ -8,7 +8,7 @@ QCatGrayQuickWidget::QCatGrayQuickWidget(const QUrl &source, QWidget *parent)
     : QWidget(parent)
 {
     m_Layout = new QVBoxLayout(this);
-    m_Layout->setMargin(0);
+    m_Layout->setContentsMargins(0,0,0,0);
 
     m_pView = new QQuickView;
     QWidget *containerWidget = QWidget::createWindowContainer(m_pView, this);
@@ -24,7 +24,7 @@ QCatGrayQuickWidget::QCatGrayQuickWidget(QWidget *parent)
     : QWidget(parent)
 {
     m_Layout = new QVBoxLayout(this);
-    m_Layout->setMargin(0);
+    m_Layout->setContentsMargins(0,0,0,0);
 
     m_pView = new QQuickView;
     QWidget *containerWidget = QWidget::createWindowContainer(m_pView, this);
