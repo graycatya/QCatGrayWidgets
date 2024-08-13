@@ -17,11 +17,11 @@ message(STATUS ${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets OpenGL Svg Gui)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets OpenGL Svg Gui)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets Gui)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets Gui)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS SvgWidgets)
+#find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS SvgWidgets)
 endif()
 
 add_subdirectory(QCatGrayScreenShots)
@@ -43,14 +43,15 @@ target_link_libraries(${PROJECT_NAME}
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Gui
         Qt${QT_VERSION_MAJOR}::Widgets
-        Qt${QT_VERSION_MAJOR}::Svg
-        Qt${QT_VERSION_MAJOR}::OpenGL)
+        #Qt${QT_VERSION_MAJOR}::Svg
+        #Qt${QT_VERSION_MAJOR}::OpenGL
+        )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-target_link_libraries(${PROJECT_NAME} 
-    PRIVATE 
-    Qt${QT_VERSION_MAJOR}::SvgWidgets)
-endif()
+# if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+# target_link_libraries(${PROJECT_NAME} 
+#     PRIVATE 
+#     Qt${QT_VERSION_MAJOR}::SvgWidgets)
+# endif()
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
@@ -61,13 +62,14 @@ target_link_libraries(${PROJECT_NAME}_a
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Gui
         Qt${QT_VERSION_MAJOR}::Widgets
-        Qt${QT_VERSION_MAJOR}::Svg
-        Qt${QT_VERSION_MAJOR}::OpenGL)
+        #Qt${QT_VERSION_MAJOR}::Svg
+        #Qt${QT_VERSION_MAJOR}::OpenGL
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-target_link_libraries(${PROJECT_NAME}_a 
-    PRIVATE 
-    Qt${QT_VERSION_MAJOR}::SvgWidgets)
+# target_link_libraries(${PROJECT_NAME}_a 
+#     PRIVATE 
+#     Qt${QT_VERSION_MAJOR}::SvgWidgets)
 endif()
 
 target_link_libraries(${PROJECT_NAME}_a
