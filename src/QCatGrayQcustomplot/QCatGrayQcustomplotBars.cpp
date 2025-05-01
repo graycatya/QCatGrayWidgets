@@ -40,22 +40,22 @@ void QCatGrayQcustomplotBars::SetShowText(bool show)
 void QCatGrayQcustomplotBars::drawText(QCPPainter *painter, const QRectF &rect, double value)
 {
     // 计算文字的位置
-    painter->setFont(mFont);                     // 设置字体
-    QString text = QString::number(value, 'g', 2);   // 取得当前value轴的值，保留两位精度
+    painter->setFont(mFont);
+    QString text = QString::number(value, 'g', 2);
 
-    QRectF textRect = painter->fontMetrics().boundingRect(0, 0, 0, 0, Qt::TextDontClip | mTextAlignment, text);  // 计算文字所占用的大小
+    QRectF textRect = painter->fontMetrics().boundingRect(0, 0, 0, 0, Qt::TextDontClip | mTextAlignment, text);
 
-    if (mKeyAxis.data()->orientation() == Qt::Horizontal) {    // 当key轴为水平轴的时候
-        if (mKeyAxis.data()->axisType() == QCPAxis::atTop)     // 上轴，移动文字到柱状图下面
+    if (mKeyAxis.data()->orientation() == Qt::Horizontal) {
+        if (mKeyAxis.data()->axisType() == QCPAxis::atTop)
             textRect.moveTopLeft(rect.bottomLeft() + QPointF(0, mSpacing));
-        else                                                   // 下轴，移动文字到柱状图上面
+        else
             textRect.moveBottomLeft(rect.topLeft() - QPointF(0, mSpacing));
         textRect.setWidth(rect.width());
         painter->drawText(textRect, Qt::TextDontClip | mTextAlignment, text);
-    } else {                                                  // 当key轴为竖直轴的时候
-        if (mKeyAxis.data()->axisType() == QCPAxis::atLeft)   // 左轴，移动文字到柱状图右边
+    } else {
+        if (mKeyAxis.data()->axisType() == QCPAxis::atLeft)
             textRect.moveTopLeft(rect.topRight() + QPointF(mSpacing, 0));
-        else                                                  // 右轴，移动文字到柱状图左边
+        else
             textRect.moveTopRight(rect.topLeft() - QPointF(mSpacing, 0));
         textRect.setHeight(rect.height());
         painter->drawText(textRect, Qt::TextDontClip | mTextAlignment, text);

@@ -36,6 +36,7 @@ set(MODULES
     QCatGrayQrenCode
     QCatGrayScreenShotsTools
     QCatGrayQuickWidget
+    QCatGrayTabbar
 )
 
 set(QCatGrayGraphicsDrawingBoard

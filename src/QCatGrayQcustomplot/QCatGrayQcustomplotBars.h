@@ -34,9 +34,9 @@ protected:
     virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
 
 protected:
-    Qt::Alignment mTextAlignment;   // 文字对齐方式
-    double mSpacing;                // 文字与柱状图的间距，这里按像素大小
-    QFont mFont;                    // 文字使用的字体
+    Qt::Alignment mTextAlignment;
+    double mSpacing;
+    QFont mFont;
     QVector<CatBarsRectData> m_pRects;       // current show rect
 
 
